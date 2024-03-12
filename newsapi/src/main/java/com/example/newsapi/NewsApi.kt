@@ -19,7 +19,7 @@ interface NewsApi {
         @Query("q") query: String? = null,
         @Query("from") from: Date? = null,
         @Query("to") to:Date? = null,
-        @Query("to") languages: List<Languages>? = null,
+        @Query("languages") languages: List<Languages>? = null,
         @Query("sortBy") sortBy: SortBy? = null,
         @Query("pageSize") @IntRange(from = 0, to = 100) pageSize: Int = 100,
         @Query("page") @IntRange(from = 1) page: Int = 1,
@@ -28,7 +28,7 @@ interface NewsApi {
 
 fun NewsApi(
     baseUrl: String,
-    okHttpClient: OkHttpClient? = null
+    okHttpClient: OkHttpClient? = null,
 ): NewsApi{
     val retrofit = retrofit(baseUrl, okHttpClient)
     return retrofit.create()
