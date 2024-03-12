@@ -15,6 +15,7 @@ import retrofit2.http.Query
 import java.util.Date
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
+import com.example.newsapi.ResultCallAdapterFactory
 
 interface NewsApi {
 
@@ -49,6 +50,7 @@ private fun retrofit(
     return Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(converterFactory)
+        .addCallAdapterFactory(ResultCallAdapterFactory.create())
         .client(okHttpClient ?: OkHttpClient())
         .build()
 }

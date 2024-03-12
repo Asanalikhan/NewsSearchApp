@@ -9,6 +9,7 @@ dependencies{
     implementation("androidx.annotation:annotation:1.7.1")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
     implementation ("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation ("com.github.skydoves:retrofit-adapters-result:1.0.9")
 
 }
 
