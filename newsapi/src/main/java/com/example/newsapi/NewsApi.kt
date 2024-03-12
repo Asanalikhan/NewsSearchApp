@@ -15,7 +15,7 @@ import retrofit2.http.Query
 import java.util.Date
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
-import com.example.newsapi.ResultCallAdapterFactory
+import com.example.newsapi.utils.ResultCallAdapterFactory
 
 interface NewsApi {
 
