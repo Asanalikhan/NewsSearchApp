@@ -16,11 +16,15 @@ import java.util.Date
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import com.example.newsapi.utils.ResultCallAdapterFactory
+import com.example.newsapi.utils.TimeApiKeyInterceptor
+import retrofit2.http.Header
+import retrofit2.http.Headers
 
 interface NewsApi {
 
     @GET("/everything")
     suspend fun everything(
+        @Header("X-Api-Key") apiKey: String,
         @Query("q") query: String? = null,
         @Query("from") from: Date? = null,
         @Query("to") to: Date? = null,
@@ -41,11 +45,15 @@ fun NewsApi(
 
 private fun retrofit(
     baseUrl: String,
+    apiKey: String,
     okHttpClient: OkHttpClient?,
     json: Json,
 ): Retrofit {
     val contentType = MediaType.get("application/json")
     val converterFactory = json.asConverterFactory(contentType)
+
+    okHttpClient?.newBuilder() ?: OkHttpClient.Builder()
+        .addInterceptor(TimeApiKeyInterceptor(apiKey))
 
     return Retrofit.Builder()
         .baseUrl(baseUrl)
