@@ -37,10 +37,11 @@ interface NewsApi {
 
 fun NewsApi(
     baseUrl: String,
+    apiKey: String,
     okHttpClient: OkHttpClient? = null,
     json: Json = Json,
 ): NewsApi {
-    return retrofit(baseUrl, okHttpClient, json).create()
+    return retrofit(baseUrl, apiKey, okHttpClient, json).create()
 }
 
 private fun retrofit(
@@ -52,13 +53,13 @@ private fun retrofit(
     val contentType = MediaType.get("application/json")
     val converterFactory = json.asConverterFactory(contentType)
 
-    okHttpClient?.newBuilder() ?: OkHttpClient.Builder()
-        .addInterceptor(TimeApiKeyInterceptor(apiKey))
+    val okHttpClient = (okHttpClient?.newBuilder() ?: OkHttpClient.Builder())
+        .addInterceptor(TimeApiKeyInterceptor(apiKey)).build()
 
     return Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(converterFactory)
         .addCallAdapterFactory(ResultCallAdapterFactory.create())
-        .client(okHttpClient ?: OkHttpClient())
+        .client(okHttpClient)
         .build()
 }
