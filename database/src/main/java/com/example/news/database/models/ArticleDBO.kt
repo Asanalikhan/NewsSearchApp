@@ -1,14 +1,17 @@
 package com.example.news.database.models
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.util.Date
 
 
 @Entity
-data class Article(
+data class ArticleDBO(
+    @PrimaryKey(autoGenerate = true) val id: Long,
     @ColumnInfo("source")
-    val source: Source,
+    @Embedded val source: Source,
     @ColumnInfo("author")
     val author: String,
     @ColumnInfo("title")
@@ -25,7 +28,6 @@ data class Article(
     val content: String
 )
 
-@Entity
 data class Source(
     @ColumnInfo("id")
     val id: String,

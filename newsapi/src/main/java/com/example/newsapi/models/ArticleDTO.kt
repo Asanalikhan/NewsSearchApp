@@ -3,11 +3,10 @@ package com.example.newsapi.models
 import com.example.newsapi.utils.DateSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import java.lang.module.ModuleDescriptor
 import java.util.Date
 
 @Serializable
-data class Article(
+data class ArticleDTO(
     @SerialName("source")
     val source: Source,
     @SerialName("author")
