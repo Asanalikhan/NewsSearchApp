@@ -1,9 +1,9 @@
 package com.example.newsapi
 
 import androidx.annotation.IntRange
-import com.example.newsapi.models.Article
+import com.example.newsapi.models.ArticleDTO
 import com.example.newsapi.models.Languages
-import com.example.newsapi.models.Responce
+import com.example.newsapi.models.ResponceDTO
 import com.example.newsapi.models.SortBy
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import okhttp3.MediaType
@@ -30,7 +30,7 @@ interface NewsApi {
         @Query("sortBy") sortBy: SortBy? = null,
         @Query("pageSize") @IntRange(from = 0, to = 100) pageSize: Int = 100,
         @Query("page") @IntRange(from = 1) page: Int = 1,
-    ): Result<Responce<Article>>
+    ): Result<ResponceDTO<ArticleDTO>>
 }
 
 fun NewsApi(
