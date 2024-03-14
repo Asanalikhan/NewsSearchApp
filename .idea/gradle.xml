@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/database" />
+            <option value="$PROJECT_DIR$/mainnews" />
+            <option value="$PROJECT_DIR$/news-main" />
             <option value="$PROJECT_DIR$/newsapi" />
             <option value="$PROJECT_DIR$/newsmain" />
           </set>
