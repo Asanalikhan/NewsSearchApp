@@ -14,11 +14,9 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.Date
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import com.example.newsapi.utils.ResultCallAdapterFactory
-import com.example.newsapi.utils.TimeApiKeyInterceptor
+import com.example.newsapi.utils.NewsApiKeyInterceptor
 import retrofit2.http.Header
-import retrofit2.http.Headers
 
 interface NewsApi {
 
@@ -54,7 +52,7 @@ private fun retrofit(
     val converterFactory = json.asConverterFactory(contentType)
 
     val okHttpClient = (okHttpClient?.newBuilder() ?: OkHttpClient.Builder())
-        .addInterceptor(TimeApiKeyInterceptor(apiKey)).build()
+        .addInterceptor(NewsApiKeyInterceptor(apiKey)).build()
 
     return Retrofit.Builder()
         .baseUrl(baseUrl)
