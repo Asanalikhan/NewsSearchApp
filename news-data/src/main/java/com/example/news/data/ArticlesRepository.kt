@@ -9,7 +9,12 @@ class ArticlesRepository(
     private val dataBase: NewsDataBase,
     private val api: NewsApi,
 ) {
-    suspend fun request(): Flow<Article>{
-        TODO("Not implemented")
+    suspend fun getAll(): Flow<Article>{
+        api.everything()
+        return dataBase.articlesDao().getAll()
     }
+    suspend fun search(query: String): Flow<Article>{
+        api.everything()
+    }
+
 }
