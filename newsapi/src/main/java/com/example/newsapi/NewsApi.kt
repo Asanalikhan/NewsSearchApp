@@ -19,7 +19,6 @@ import com.example.newsapi.utils.NewsApiKeyInterceptor
 import retrofit2.http.Header
 
 interface NewsApi {
-
     @GET("/everything")
     suspend fun everything(
         @Header("X-Api-Key") apiKey: String? = null,

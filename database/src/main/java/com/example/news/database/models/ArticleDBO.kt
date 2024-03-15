@@ -25,7 +25,8 @@ data class ArticleDBO(
     val publishedAt: Date,
     @ColumnInfo("content")
     val content: String
-)
+) {
+}
 
 data class Source(
     @ColumnInfo("id")

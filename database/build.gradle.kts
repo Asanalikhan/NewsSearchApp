@@ -38,6 +38,6 @@ dependencies {
     implementation("androidx.test.ext:junit-ktx:1.1.5")
     implementation("androidx.room:room-common:2.6.1")
     ksp("androidx.room:room-compiler:$1.9.22")
-    implementation("androidx.room:room-ktx:$2.6.1")
+    api("androidx.room:room-ktx:$2.6.1")
     implementation("com.google.devtools.ksp:symbol-processing-api:1.9.21-1.0.15")
 }
