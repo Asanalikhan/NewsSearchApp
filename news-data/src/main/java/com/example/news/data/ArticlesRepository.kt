@@ -9,7 +9,7 @@ class ArticlesRepository(
     private val dataBase: NewsDataBase,
     private val api: NewsApi,
 ) {
-    fun request(): Flow<Article>{
+    suspend fun request(): Flow<Article>{
         TODO("Not implemented")
     }
 }
