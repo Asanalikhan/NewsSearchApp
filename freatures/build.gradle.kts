@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.news.main"
+    namespace = "com.example.freatures"
     compileSdk = 34
 
     defaultConfig {
@@ -53,4 +53,9 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation(project(":database"))
+    implementation(project(":newsapi"))
 }

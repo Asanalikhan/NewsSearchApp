@@ -1,4 +1,4 @@
-package com.example.news.main
+package com.example.freatures
 
 import org.junit.Test
 

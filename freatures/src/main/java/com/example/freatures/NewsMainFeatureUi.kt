@@ -1,4 +1,4 @@
-package com.example.news.main
+package com.example.freatures
 
 import androidx.compose.runtime.Composable
 
