@@ -1,9 +1,13 @@
 package com.example.news.data
 
 import com.example.news.data.model.Article
-import com.example.news.database.NewsDataBase
+import com.example.news.data.model.toArticle
 import com.example.newsapi.NewsApi
+import com.example.news.database.NewsDataBase
+import com.example.newsapi.models.ArticleDTO
+import com.example.newsapi.models.ResponceDTO
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class ArticlesRepository(
     private val dataBase: NewsDataBase,
@@ -13,13 +17,15 @@ class ArticlesRepository(
         return RequestResult.InProgress(
             dataBase.articlesDao
                 .getAll()
-                .map { articles -> articles.map { it.toArticle()}}
+                .map { articles -> articles.map { it.toArticle() } }
         )
     }
-    suspend fun search(query: String): Flow<Article>{
-        api.everything()
+
+    suspend fun search(query: String): Result<ResponceDTO<ArticleDTO>> {
+        return api.everything() // Implement your search logic here
     }
 }
+
 
 sealed class RequestResult<E>(protected val data: E?) {
     class InProgress<E>(data: E?) : RequestResult<E>(data)

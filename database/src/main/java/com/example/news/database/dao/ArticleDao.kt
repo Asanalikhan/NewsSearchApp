@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.RawQuery
 import com.example.news.database.models.ArticleDBO
 import kotlinx.coroutines.flow.Flow
 
